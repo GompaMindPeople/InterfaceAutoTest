@@ -1,12 +1,19 @@
 package service
 
-import "net/http"
+import (
+	"InterfaceAutoTest/model"
+	"net/http"
+)
 
 type CloudService interface {
-	GetList(hc *http.Client) string
-	Start(hc *http.Client, id string) string
-	Stop(hc *http.Client, id string) string
-	Restart(hc *http.Client, id string) string
-	GetServerStatus(hc *http.Client, id string) string
-	GetServerInfo(hc *http.Client, id string) string
+	GetList(hc *http.Client) (string, *model.RequestModel)
+	Start(hc *http.Client, id string) (string, *model.RequestModel)
+	Stop(hc *http.Client, id string) (string, *model.RequestModel)
+	Restart(hc *http.Client, id string) (string, *model.RequestModel)
+	GetServerStatus(hc *http.Client, id string) (string, *model.RequestModel)
+	GetServerInfo(hc *http.Client, id string) (string, *model.RequestModel)
+	ResetPassword(hc *http.Client, id, password string) (string, *model.RequestModel)
+	ReinstallSystem(hc *http.Client, id, systemName string) (string, *model.RequestModel)
+	ResetControlPassword(hc *http.Client, id, password string) (string, *model.RequestModel)
+	GetSystemList(hc *http.Client, id string) (string, *model.RequestModel)
 }

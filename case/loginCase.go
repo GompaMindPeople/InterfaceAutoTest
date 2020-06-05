@@ -8,7 +8,7 @@ import (
 var ser = service.LoginService{}
 
 //所有的case 都需要登录操作
-func Login(hc *http.Client, username, password string) string {
+func TestLogin(hc *http.Client, username, password string) string {
 	result, _ := ser.Login(hc, username, password)
 	return result
 }
